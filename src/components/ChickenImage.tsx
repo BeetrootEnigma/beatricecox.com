@@ -7,6 +7,7 @@ export const ChickenImage: React.FC = () => {
       alt="An animation of a chicken laying an egg that cracks"
       width={260}
       height={350}
+      sizes="260px"
       style={{ aspectRatio: "4/3", objectFit: "cover" }}
     />
   );

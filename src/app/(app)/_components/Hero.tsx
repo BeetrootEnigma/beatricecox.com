@@ -2,9 +2,8 @@
 
 import { motion, Variants } from "framer-motion";
 
+import { RichText } from "@/components/Richtext";
 import { HomepageCopy } from "@/types/global";
-
-import { RichText } from "../../components/Richtext";
 
 interface HeroProps {
   homepageCopy: Partial<HomepageCopy>;

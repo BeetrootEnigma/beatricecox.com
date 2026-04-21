@@ -67,6 +67,7 @@ export const WorthyClients = () => {
               style={{ objectFit: "contain" }}
               src={logo}
               alt="logo"
+              sizes="(max-width: 768px) 20vw, 170px"
             />
           </motion.div>
         ))}

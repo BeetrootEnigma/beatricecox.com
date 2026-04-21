@@ -52,6 +52,7 @@ export const Carousel: React.FC<CarouselProps> = ({ images }) => {
               width={img.details.width || 0}
               height={img.details.height || 0}
               loading="lazy"
+              sizes="(max-width: 1024px) 100vw, 1025px"
               style={{ objectFit: "contain" }}
             />
           </div>

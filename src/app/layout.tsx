@@ -1,14 +1,8 @@
 import { ReactNode } from "react";
-import { GoogleAnalytics } from "@next/third-parties/google";
-import { Analytics } from "@vercel/analytics/react";
-import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Metadata } from "next";
-import { draftMode } from "next/headers";
 import Script from "next/script";
 import { Organization, WithContext } from "schema-dts";
 
-import { ConditionalLayout } from "@/components/ConditionalLayout";
-import { PreviewBadge } from "@/components/PreviewBadge";
 import { env } from "@/lib/env";
 import { bodoni, manrope } from "@/utils/fonts";
 
@@ -55,21 +49,15 @@ export const metadata: Metadata = {
   },
 };
 
-type Props = {
-  children: ReactNode;
+const jsonLd: WithContext<Organization> = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  url: env.NEXT_PUBLIC_BASE_URL,
+  name: "Beatrice Duguid Cox",
+  logo: "/icons/favicon-48x48.png",
 };
 
-export default async function RootLayout({ children }: Props) {
-  const { isEnabled: isPreviewEnabled } = await draftMode();
-
-  const jsonLd: WithContext<Organization> = {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    url: env.NEXT_PUBLIC_BASE_URL,
-    name: "Beatrice Duguid Cox",
-    logo: "/icons/favicon-48x48.png",
-  };
-
+export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
       <head>
@@ -80,23 +68,8 @@ export default async function RootLayout({ children }: Props) {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-
       <body className={`${bodoni.variable} ${manrope.variable}`}>
-        <ConditionalLayout>{children}</ConditionalLayout>
-
-        {isPreviewEnabled && <PreviewBadge />}
-
-        {env.NEXT_PUBLIC_ENVIRONMENT === "production" && (
-          <>
-            <GoogleAnalytics
-              gaId={env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID as string}
-            />
-
-            <Analytics />
-
-            <SpeedInsights />
-          </>
-        )}
+        {children}
       </body>
     </html>
   );

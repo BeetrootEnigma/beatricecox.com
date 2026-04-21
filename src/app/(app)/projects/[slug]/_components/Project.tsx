@@ -26,6 +26,7 @@ export const Project: React.FC<ProjectProps> = ({ project, isPreview }) => {
             alt={project.mainImage?.description || ""}
             src={project.mainImage?.url || ""}
             loading="eager"
+            sizes="100vw"
             style={{ objectFit: "cover" }}
           />
         </div>

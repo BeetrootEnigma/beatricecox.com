@@ -59,6 +59,7 @@ export const Project: React.FC<ProjectsProps> = ({ project }) => {
                 alt={thumbnailImage.description || ""}
                 width={thumbnailImage.details.width}
                 height={thumbnailImage.details.height}
+                sizes="(max-width: 768px) 100vw, 50vw"
               />
             )}
           </div>
@@ -75,6 +76,7 @@ export const Project: React.FC<ProjectsProps> = ({ project }) => {
                 alt={thumbnailImage.description || ""}
                 width={thumbnailImage.details.width}
                 height={thumbnailImage.details.height}
+                sizes="(max-width: 768px) 100vw, 50vw"
               />
             )}
             <h3 className="text-3xl font-thin cursor-pointer mt-8 text-black">

@@ -44,6 +44,7 @@ export const AboutHero: React.FC<AboutHeroProps> = ({ headerText }) => {
             className="rounded-t-2xl"
             src="/images/beatricecox.jpg"
             alt="A picture of Beatrice at the sea"
+            sizes="(max-width: 768px) 0vw, 50vw"
             style={{ objectFit: "cover" }}
           />
         </div>

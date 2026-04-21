@@ -46,8 +46,9 @@ export async function getPrevAndNextProjectsBySanityId({
 }: GetPrevAndNextProjectsBySanityIdParams): Promise<GetPrevAndNextProjectsBySanityIdResponse> {
   try {
     const client = getClient(isPreview);
-    const rows =
-      await client.fetch<SanityProjectNavRow[]>(orderedProjectsNavQuery);
+    const rows = await client.fetch<SanityProjectNavRow[]>(
+      orderedProjectsNavQuery
+    );
 
     const sorted = [...(rows ?? [])].sort(
       (a, b) => (a.order ?? 0) - (b.order ?? 0)

@@ -11,9 +11,10 @@ const DynamicBlock = dynamic(() => import("./Block"));
 
 interface ProjectProps {
   project: Partial<IProject> & { sanityId: string };
+  isPreview?: boolean;
 }
 
-export const Project: React.FC<ProjectProps> = ({ project }) => {
+export const Project: React.FC<ProjectProps> = ({ project, isPreview }) => {
   return (
     <div>
       <div className="px-6 md:px-16 lg:px-24 max-w-[1600px] mx-auto">
@@ -40,7 +41,10 @@ export const Project: React.FC<ProjectProps> = ({ project }) => {
 
       <ProjectsScrollerErrorBoundary>
         <Suspense>
-          <ProjectsScroller projectSanityId={project.sanityId} />
+          <ProjectsScroller
+            projectSanityId={project.sanityId}
+            isPreview={isPreview}
+          />
         </Suspense>
       </ProjectsScrollerErrorBoundary>
     </div>

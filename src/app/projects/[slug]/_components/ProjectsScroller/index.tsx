@@ -1,8 +1,6 @@
 import Link from "next/link";
 
-import { getPrevAndNextProjects } from "@/lib/sanity/queries";
-
-import { getProjectSuccessorAndPredecessorIds } from "./utils";
+import { getPrevAndNextProjectsBySanityId } from "@/lib/sanity/queries";
 
 function getCatgeoryText(category: string | undefined) {
   if (category === "UX/UI") {
@@ -18,17 +16,16 @@ function getCatgeoryText(category: string | undefined) {
 
 interface ProjectsScrollerProps {
   projectSanityId: string;
+  isPreview?: boolean;
 }
 
 export async function ProjectsScroller({
   projectSanityId,
+  isPreview = false,
 }: ProjectsScrollerProps) {
-  const { prevId, nextId } =
-    await getProjectSuccessorAndPredecessorIds(projectSanityId);
-
-  const { prevProject, nextProject } = await getPrevAndNextProjects({
-    prevId,
-    nextId,
+  const { prevProject, nextProject } = await getPrevAndNextProjectsBySanityId({
+    sanityId: projectSanityId,
+    isPreview,
   });
 
   return (

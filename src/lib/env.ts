@@ -8,8 +8,6 @@ export const env = createEnv({
     SANITY_API_READ_TOKEN: z.string().min(1),
     DRAFT_MODE_SECRET_TOKEN: z.string().min(1),
     PROJECT_PASSWORD_COOKIE_SECRET: z.string().min(1),
-    REBUILD_PROJECTS_INDEX_API_KEY: z.string().min(1),
-    DATABASE_URL: z.string().min(1),
   },
   client: {
     NEXT_PUBLIC_ENVIRONMENT: z.enum(["local", "production"]),

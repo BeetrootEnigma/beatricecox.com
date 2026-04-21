@@ -107,7 +107,7 @@ export default async function ProjectPage(props: ProjectPageProps) {
 
   return (
     <div className="pt-32 flex flex-col">
-      <Project project={project} />
+      <Project project={project} isPreview={isEnabled} />
     </div>
   );
 }

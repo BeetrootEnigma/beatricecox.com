@@ -7,11 +7,9 @@ on:
     branches: [main]
 
 env:
-  DATABASE_URL: placeholder
   SANITY_API_READ_TOKEN: placeholder
   DRAFT_MODE_SECRET_TOKEN: placeholder
   PROJECT_PASSWORD_COOKIE_SECRET: placeholder
-  REBUILD_PROJECTS_INDEX_API_KEY: placeholder
   NEXT_PUBLIC_SANITY_PROJECT_ID: placeholder
   NEXT_PUBLIC_SANITY_DATASET: placeholder
   NEXT_PUBLIC_SANITY_API_VERSION: placeholder
@@ -27,8 +25,6 @@ jobs:
       - uses: oven-sh/setup-bun@v2
       - name: Install dependencies
         run: bun install
-      - name: Generate db types
-        run: bun run db:generate
       - name: Run typecheck
         run: bun run typecheck
 

@@ -20,12 +20,11 @@
         "name": "next"
       }
     ],
-    "baseUrl": ".",
     "paths": {
       "@/actions/*": ["./src/actions/*"],
       "@/components/*": ["./src/components/*"],
       "@/contexts/*": ["./src/contexts/*"],
-      "@/sanity/*": ["src/lib/sanity/*"],
+      "@/sanity/*": ["./src/lib/sanity/*"],
       "@/hooks/*": ["./src/hooks/*"],
       "@/icons/*": ["./src/icons/*"],
       "@/lib/*": ["./src/lib/*"],

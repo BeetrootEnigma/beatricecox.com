@@ -1,18 +1,31 @@
 # beatricecox.com
 
-This is the website for https://beatricecox.com a Web Designer based in London.
+This is the website for https://beatricecox.com — a web designer based in London.
 
 ## Prerequisites
 
-- [NodeJs](https://nodejs.org/en/) - v20+
-- [Docker](https://docs.docker.com/) / this is only used if you want to pull up the local postgres using docker-compose, otherwise you can install postgres directly into your machin
+- [Bun](https://bun.sh/) (version compatible with this repo’s lockfile; Bun 1.1+ is a reasonable baseline)
 
-## Getting Started
+## Getting started
 
-First of all make sur eyou have copied `.env` into `.env.local`, and updtated all the values according to your local values. Once that is done, make sure to run the postgres database with `docker-compose up`. On a different terminal now simply run `npm run dev` and the app will start on port 3000.
+1. Copy [`.env.template`](.env.template) to `.env` and fill in every value for your environment (Sanity, preview token, cookie secret, public URLs, etc.).
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Install dependencies:
 
-### Deploy on Vercel
+   ```bash
+   bun install
+   ```
 
-This website is deployed and served through Vercel, any push on `master` will automatically trigger a deployment to the production website.
+3. Run the dev server:
+
+   ```bash
+   bun run dev
+   ```
+
+   The app serves at [http://localhost:3000](http://localhost:3000).
+
+Other useful scripts: `bun run build`, `bun run lint`, `bun run typecheck`, `bun run format`.
+
+## Deploy on Vercel
+
+The site is deployed on Vercel; pushes to the default production branch trigger deployments.

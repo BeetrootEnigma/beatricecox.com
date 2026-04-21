@@ -36,6 +36,6 @@ export async function getHomepageCopy({
     };
   } catch (error) {
     console.error(error);
-    throw new Error("Failed to fetch homepage copy");
+    throw new Error("Failed to fetch homepage copy", { cause: error });
   }
 }

@@ -1,6 +1,6 @@
 "use client";
 
-import { useContext } from "react";
+import { use } from "react";
 import { motion, Variants } from "framer-motion";
 
 import { ProjectsFilterContext } from "@/contexts/ProjectsFilterContext";
@@ -45,7 +45,7 @@ const normalFiltersVariants: Variants = {
 };
 
 export const Filterbar: React.FC = () => {
-  const { currentFilter, setCurrentFilter } = useContext(ProjectsFilterContext);
+  const { currentFilter, setCurrentFilter } = use(ProjectsFilterContext);
 
   return (
     <div className="sticky top-0 h-28 bg-[#E5E4E2] z-50">

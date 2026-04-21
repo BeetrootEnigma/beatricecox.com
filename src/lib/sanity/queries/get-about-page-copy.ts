@@ -45,6 +45,6 @@ export async function getAboutPageCopy({
     };
   } catch (error) {
     console.error(error);
-    throw new Error("Failed to fetch About Page copy");
+    throw new Error("Failed to fetch About Page copy", { cause: error });
   }
 }

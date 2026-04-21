@@ -15,7 +15,7 @@ const MULTI_CATEGORIES_MAP: Record<string, string[]> = {
   ],
 };
 
-export function useProjectsWithFilter({
+export function filterProjects({
   projects,
   currentFilter,
 }: UseProjectArgs): ProjectsColumn {

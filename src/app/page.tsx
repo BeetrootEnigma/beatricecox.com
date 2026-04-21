@@ -33,8 +33,6 @@ export default async function Home() {
       <Contact />
 
       <WorthyClients />
-
-      {/* <GetInTouch /> */}
     </div>
   );
 }

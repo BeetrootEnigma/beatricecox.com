@@ -5,7 +5,9 @@ export const Bold: React.FC<PropsWithChildren> = ({ children }) => (
 );
 
 export const Text: React.FC<PropsWithChildren> = ({ children }) => {
+  // eslint-disable-next-line @eslint-react/no-children-to-array
   const childrenArray = Children.toArray(children);
+
   if (childrenArray.length === 1 && childrenArray[0] === "") {
     return null;
   }

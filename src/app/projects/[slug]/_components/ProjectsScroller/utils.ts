@@ -37,7 +37,8 @@ export async function getProjectSuccessorAndPredecessorIds(sanityId: string) {
   } catch (error) {
     console.error(error);
     throw new Error(
-      `Failed to get project successor and predecessor IDs: ${error}`
+      `Failed to get project successor and predecessor IDs: ${error}`,
+      { cause: error }
     );
   }
 }

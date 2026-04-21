@@ -38,15 +38,15 @@ export const ErrorNotification: React.FC<
   const [isErrorVisible, setIsErrorVisible] = useState(false);
 
   useEffect(() => {
-    if (showError && data === null) {
-      setIsErrorVisible(true);
+    if (!showError || data !== null) return;
 
-      const timeout = setTimeout(() => {
-        setIsErrorVisible(false);
-      }, 4000);
+    const showId = setTimeout(() => setIsErrorVisible(true), 0);
+    const hideId = setTimeout(() => setIsErrorVisible(false), 4000);
 
-      return () => clearTimeout(timeout);
-    }
+    return () => {
+      clearTimeout(showId);
+      clearTimeout(hideId);
+    };
   }, [showError, data]);
 
   if (!isErrorVisible) return null;

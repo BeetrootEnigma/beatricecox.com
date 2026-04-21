@@ -1,6 +1,6 @@
 "use client";
 
-import { createContext, PropsWithChildren, useContext, useState } from "react";
+import { createContext, PropsWithChildren, use, useState } from "react";
 
 import { ProjectCategory } from "@/types/global";
 
@@ -14,7 +14,7 @@ export const ProjectsFilterContext = createContext<IProjectsFilterContext>({
   setCurrentFilter: () => {},
 });
 
-export const useProjectsFilter = () => useContext(ProjectsFilterContext);
+export const useProjectsFilter = () => use(ProjectsFilterContext);
 
 export const ProjectsFilterContextProvider: React.FC<PropsWithChildren> = ({
   children,
@@ -29,8 +29,6 @@ export const ProjectsFilterContextProvider: React.FC<PropsWithChildren> = ({
   };
 
   return (
-    <ProjectsFilterContext.Provider value={value}>
-      {children}
-    </ProjectsFilterContext.Provider>
+    <ProjectsFilterContext value={value}>{children}</ProjectsFilterContext>
   );
 };

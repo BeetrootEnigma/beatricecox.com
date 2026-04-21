@@ -23,6 +23,8 @@ export async function getProjectPassword({
     return project?.protectionPassword || undefined;
   } catch (error) {
     console.error(error);
-    throw new Error(`Failed to fetch project password with slug: ${slug}`);
+    throw new Error(`Failed to fetch project password with slug: ${slug}`, {
+      cause: error,
+    });
   }
 }

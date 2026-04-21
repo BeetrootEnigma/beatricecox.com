@@ -76,6 +76,7 @@ export default async function RootLayout({ children }: Props) {
         <Script
           id="website-json-ld"
           type="application/ld+json"
+          // eslint-disable-next-line @eslint-react/dom-no-dangerously-set-innerhtml
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>

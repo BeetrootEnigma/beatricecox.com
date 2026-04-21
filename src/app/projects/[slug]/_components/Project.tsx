@@ -4,6 +4,7 @@ import Image from "next/image";
 
 import { Project as IProject } from "@/types/global";
 
+import { ProjectsScrollerErrorBoundary } from "./ProjectsScroller/ErrorBoundary";
 import { ProjectsScroller } from "./ProjectsScroller";
 
 const DynamicBlock = dynamic(() => import("./Block"));
@@ -37,9 +38,11 @@ export const Project: React.FC<ProjectProps> = ({ project }) => {
         </div>
       )}
 
-      <Suspense>
-        <ProjectsScroller projectSanityId={project.sanityId} />
-      </Suspense>
+      <ProjectsScrollerErrorBoundary>
+        <Suspense>
+          <ProjectsScroller projectSanityId={project.sanityId} />
+        </Suspense>
+      </ProjectsScrollerErrorBoundary>
     </div>
   );
 };

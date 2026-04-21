@@ -1,12 +1,12 @@
 "use client";
 
-import { useContext } from "react";
+import { use } from "react";
 
 import { ProjectsFilterContext } from "@/contexts/ProjectsFilterContext";
 import { Project as IProject } from "@/types/global";
 
+import { filterProjects } from "./filterProjects";
 import { Project } from "./Project";
-import { useProjectsWithFilter } from "./useProjectsWithFilter";
 
 interface ProjectsListProps {
   projects: Array<
@@ -23,9 +23,9 @@ interface ProjectsListProps {
 }
 
 export const ProjectsList: React.FC<ProjectsListProps> = ({ projects }) => {
-  const { currentFilter } = useContext(ProjectsFilterContext);
+  const { currentFilter } = use(ProjectsFilterContext);
 
-  const [leftColumnProjects, rightColumnProjects] = useProjectsWithFilter({
+  const [leftColumnProjects, rightColumnProjects] = filterProjects({
     projects,
     currentFilter,
   });

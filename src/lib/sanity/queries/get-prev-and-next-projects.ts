@@ -57,6 +57,6 @@ export async function getPrevAndNextProjects({
     };
   } catch (error) {
     console.error(error);
-    throw new Error("Failed to fetch projects");
+    throw new Error("Failed to fetch projects", { cause: error });
   }
 }

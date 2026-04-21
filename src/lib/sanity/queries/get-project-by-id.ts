@@ -29,6 +29,6 @@ export async function getProjectById(
     };
   } catch (error) {
     console.error(error);
-    throw new Error(`Failed to fetch project with id: ${id}`);
+    throw new Error(`Failed to fetch project with id: ${id}`, { cause: error });
   }
 }

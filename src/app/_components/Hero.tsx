@@ -43,7 +43,7 @@ export const Hero: React.FC<HeroProps> = ({ homepageCopy }) => (
 
         {homepageCopy.mainText && (
           <motion.div
-            className="w-full md:w-3/4 leading-[1.9rem] md:leading-[2.5rem] text-xl md:text-3xl font-[500] lg:font-[400]"
+            className="w-full md:w-3/4 leading-[1.9rem] md:leading-10 text-xl md:text-3xl font-medium lg:font-normal"
             variants={variants}
           >
             <RichText value={homepageCopy.mainText} />

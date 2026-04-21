@@ -146,7 +146,9 @@ export const getProject = cache(
       };
     } catch (error) {
       console.error("Error fetching project:", error);
-      throw new Error(`Failed to fetch project with slug: ${slug}`);
+      throw new Error(`Failed to fetch project with slug: ${slug}`, {
+        cause: error,
+      });
     }
   }
 );

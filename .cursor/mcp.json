@@ -1,0 +1,12 @@
+{
+    "mcpServers": {
+      "next-devtools": {
+        "command": "npx",
+        "args": ["-y", "next-devtools-mcp@latest"]
+      },
+      "figma": {
+			"url": "http://127.0.0.1:3845/mcp",
+			"type": "http"
+		}
+    }
+  }

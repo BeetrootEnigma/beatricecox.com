@@ -12,14 +12,14 @@ export const BookImage: React.FC = () => {
       viewport={{ once: true, amount: 0.7 }}
       transition={{ staggerChildren: 0.6 }}
     >
-      <div className="absolute bottom-[-30%] left-0 right-0 w-full h-[500px]">
-        <div className="relative w-full h-[500px]">
+      <div className="absolute left-0 right-0 w-full h-[500px]">
+        <div className="relative w-full h-full">
           <Image
             fill
             src="/images/book.jpg"
             alt="Book cover of Babingtons Recipe Book"
             sizes="100vw"
-            style={{ objectFit: "cover" }}
+            style={{ objectFit: "cover", objectPosition: "top" }}
           />
         </div>
       </div>

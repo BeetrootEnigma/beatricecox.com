@@ -12,6 +12,7 @@ export const client = createClient({
   apiVersion,
   useCdn: true,
   token: env.SANITY_API_READ_TOKEN,
+  perspective: "published",
 });
 
 export function getClient(preview?: boolean) {
